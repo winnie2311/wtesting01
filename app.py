@@ -32,12 +32,8 @@ def callback():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event.message.text):
-   return {
-        'hi': "hello",
-        'name': "Bot",
-        'bye': "bye bye",
-        }.get(var,"sorry, I don't understand this word")
+def handle_message(event):
+    get_message = event.message.text
 
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
