@@ -19,6 +19,7 @@ def callback():
 
     if request.method == "GET":
         return "Hello Heroku"
+
     if request.method == "POST":
         signature = request.headers["X-Line-Signature"]
         body = request.get_data(as_text=True)
@@ -33,7 +34,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    get_message = event.message.text
+    if(event.message.text=="0")
+        get_message="hi"
+    else if(event.message.text=="0")
+        get_message="hello"
+    else
+        get_message="bye"
 
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
