@@ -34,12 +34,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 
-    if event.message.text="0":
-       get_message="hi"
-    elif event.message.text="1":
-        get_message="hello"
-    else:
-        get_message="bye"
+if event.message.text="0":
+   get_message="hi"
+elif event.message.text="1":
+    get_message="hello"
+else:
+    get_message="bye"
 
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
