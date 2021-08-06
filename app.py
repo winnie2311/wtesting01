@@ -33,14 +33,9 @@ def callback():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-
-if event.message.text="0":
-   get_message="hi"
-elif event.message.text="1":
-    get_message="hello"
-else:
-    get_message="bye"
-
+def handle_message(event):
+    get_message=event.message.text
+    
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
     line_bot_api.reply_message(event.reply_token, reply)
