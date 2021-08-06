@@ -19,7 +19,6 @@ def callback():
 
     if request.method == "GET":
         return "Hello Heroku"
-
     if request.method == "POST":
         signature = request.headers["X-Line-Signature"]
         body = request.get_data(as_text=True)
@@ -33,26 +32,13 @@ def callback():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
+def handle_message(event.message.text):
+   return {
+        'hi': "hello",
+        'name': "Bot",
+        'bye': "bye bye",
+        }.get(var,"sorry, I don't understand this word")
 
-    swicth(event.message.text)
-    {
-        case "hi":
-            get_message = "hello"
-            break
-
-        case "name":
-            get_message = "Bot"
-            break
-
-        case "bye":
-            get_message = "bye bye"
-            break
-        
-        default:
-             get_message = "sorry, I don't understand this word"
-    }
-
-    # Testing
+    # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
     line_bot_api.reply_message(event.reply_token, reply)
