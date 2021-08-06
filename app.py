@@ -34,11 +34,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if(event.message.text=="0")
-        get_message="hi"
-    else if(event.message.text=="0")
+
+    if event.message.text="0":
+       get_message="hi"
+    elif event.message.text="1":
         get_message="hello"
-    else
+    else:
         get_message="bye"
 
     # Send To Line
